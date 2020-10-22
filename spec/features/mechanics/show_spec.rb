@@ -14,9 +14,7 @@ describe "As a user," do
                         thrill: "7",
                         park_id: @park.id)
 
-    @ride3 = Ride.create!(name: "The Great Bear",
-                        thrill: "9",
-                        park_id: @park.id)
+
 
     MechRide.create!(ride_id: @ride1.id, mechanic_id: @mechanic.id)
     MechRide.create!(ride_id: @ride2.id, mechanic_id: @mechanic.id)
@@ -32,14 +30,17 @@ describe "As a user," do
     end
     it "And I also see a form to add a ride to their workload" do
       visit "/mechanics/#{@mechanic.id}"
-      expect(page).to have_content("Add ride for maintenance")
-      expect(page).to have_field("id")
+      expect(page).to have_content("Add ride for maintenance:")
+      expect(page).to have_field("ride_id")
     end
   end
   describe "When I fill in that field with an id of an existing ride and hit submit" do
       before(:each) do
+        @ride3 = Ride.create!(name: "The Great Bear",
+                            thrill: "9",
+                            park_id: @park.id)
         visit "/mechanics/#{@mechanic.id}"
-        fill_in "ride[id]", with: "#{@park3.id}"
+        fill_in "ride_id", with: "#{@ride3.id}"
       end
     it "I’m taken back to that mechanics show page" do
       click_on "Submit"

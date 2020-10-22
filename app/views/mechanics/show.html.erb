@@ -1,0 +1,26 @@
+<table>
+  <tr>
+    <td>Mechanic Name:</td>
+    <td><%= @mechanic.name %></td>
+  </tr>
+  <tr>
+    <td>Experience:</td>
+    <td ><%= "#{@mechanic.experience} years of experience" %></td>
+  </tr>
+  <tr>
+  <p>Rides:</p>
+  </tr>
+  <% @mechanic.rides.each do |ride| %>
+    <tr id ="<%=ride.name%>">
+      <td><%=ride.name%></td>
+    </tr>
+  <% end %>
+</table>
+<form action="/mechanics/<%= @mechanic.id %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type='hidden' name="_method" value='PATCH'>
+  <input type="hidden" name="mechanic_id" value="<%=@mechanic.id %>">
+  <p>Add ride for maintenance:</p>
+  <label>id:</label><input type='text' name='ride_id'/><br>
+  <label></label><input type='submit' value="Submit"/>
+</form>
