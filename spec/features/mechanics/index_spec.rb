@@ -17,7 +17,6 @@ describe "As a user," do
       end
     end
     it 'And I see a list of all mechanic’s names and their years of experience' do
-      save_and_open_page
       expect(page).to have_content("#{@mechanic.name}")
       expect(page).to have_content("#{@mechanic.experience} years of experience")
       expect(page).to have_content("#{@mechanic2.name}")

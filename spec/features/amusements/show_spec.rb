@@ -1,4 +1,5 @@
 #Story 2
+require 'rails_helper'
 describe "As a visitor," do
   before(:each) do
 
@@ -12,7 +13,7 @@ describe "As a visitor," do
     @ride3 = @park.rides.create!(name: "The Great Bear",
                         thrill: "9")
 
-
+    visit "/parks/#{@park.id}"
   end
   describe "When I visit an amusement park’s show page" do
     it "I see the name and price of admissions for that amusement park" do
@@ -26,7 +27,7 @@ describe "As a visitor," do
 
     end
     it "And I see the average thrill rating of this amusement park’s rides" do
-      expect(Ride.average(:thrill)).to eq(7.8)
+      expect(Ride.average(:thrill)).to eq(8)
     end
   end
 end

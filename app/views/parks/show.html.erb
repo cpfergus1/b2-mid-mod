@@ -1,0 +1,22 @@
+<table class= "Show">
+  <tr>
+    <td>Park Name:</td>
+    <td><%= @park.name %></td>
+  </tr>
+  <tr>
+    <td>Park cost:</td>
+    <td>Admissions: $<%= @park.cost %></td>
+  </tr>
+  <tr>
+  <p>Rides:</p>
+  </tr>
+  <% @park.rides.each do |ride| %>
+    <tr id ="<%=ride.name%>">
+      <td><%=ride.name%></td>
+    </tr>
+  <% end %>
+  <tr>
+    <td>Average Thrill Rating of Rides:</td>
+    <td><%=@park.rides.average(:thrill)%></td>
+  </tr>
+</table>
