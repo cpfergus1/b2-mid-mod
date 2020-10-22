@@ -1,0 +1,10 @@
+<header id = "page_head">All Mechanics</header>
+<section id = "mechanics_list">
+  <table>
+    <% @mechanics.each do |mechanic| %>
+      <tr>
+        <td >< <% mechanic.name %> >
+        <td >< <% "#{mechanic.experience} years of experience" %> >
+      </tr>
+    <% end %>
+    </table>
