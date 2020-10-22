@@ -3,8 +3,8 @@
   <table>
     <% @mechanics.each do |mechanic| %>
       <tr>
-        <td >< <% mechanic.name %> >
-        <td >< <% "#{mechanic.experience} years of experience" %> >
+        <td ><%= mechanic.name %></td>
+        <td ><%= "#{mechanic.experience} years of experience" %></td>
       </tr>
     <% end %>
-    </table>
+  </table>

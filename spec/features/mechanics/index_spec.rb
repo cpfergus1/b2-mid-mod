@@ -2,12 +2,13 @@
 require 'rails_helper'
 describe "As a user," do
   before(:each) do
-    @mechanic = Mechanic.new(name: "John Adams",
+    @mechanic = Mechanic.create(name: "John Adams",
                             experience: 10)
-    @mechanic2 = Mechanic.new(name: "Kara Smith",
+    @mechanic2 = Mechanic.create(name: "Kara Smith",
                             experience: 12)
-    @mechanic3 = Mechanic.new(name: "Jim Bean",
+    @mechanic3 = Mechanic.create(name: "Jim Bean",
                             experience: 7)
+    visit '/mechanics'
   end
   describe "When I visit a mechanics index page" do
     it 'I see a header saying “All Mechanics”' do
@@ -16,6 +17,7 @@ describe "As a user," do
       end
     end
     it 'And I see a list of all mechanic’s names and their years of experience' do
+      save_and_open_page
       expect(page).to have_content("#{@mechanic.name}")
       expect(page).to have_content("#{@mechanic.experience} years of experience")
       expect(page).to have_content("#{@mechanic2.name}")

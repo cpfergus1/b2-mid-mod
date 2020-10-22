@@ -1,7 +1,7 @@
 class MechanicsController < ApplicationController
 
   def index
-    @mechanics = Mechanics.find(params[:id])
+    @mechanics = Mechanic.all
   end
 
 end
