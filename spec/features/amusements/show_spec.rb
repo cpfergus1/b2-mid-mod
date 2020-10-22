@@ -24,6 +24,7 @@ describe "As a visitor," do
       expect(page).to have_content(@ride1.name)
       expect(page).to have_content(@ride2.name)
       expect(page).to have_content(@ride3.name)
+      save_and_open_page
 
     end
     it "And I see the average thrill rating of this amusement park’s rides" do
